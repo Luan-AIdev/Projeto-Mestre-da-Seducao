@@ -1,0 +1,523 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+   background: linear-gradient(to bottom, #1a0000 0%, #1a0000 20%, #0f000f 60%, #000000 100%);
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+.container,
+.container-2 {
+  background: transparent;
+}
+
+h1, h2, h3, .paragrafo-destaque {
+  font-family: 'Playfair Display', serif;
+}
+
+.top-banner {
+  background-color: #a00000;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px 15px;
+  font-size: 0.59rem;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 100%;
+}
+
+.top-banner p {
+  margin: 0 auto;
+  max-width: 90%;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Responsividade top-banner */
+@media (max-width: 600px) {
+  .top-banner {
+    font-size: 0.48rem;
+    line-height: 1.2;
+    padding: 4px 10px;
+  }
+
+  .top-banner p {
+    max-width: 100%;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 400px) {
+  .top-banner {
+    font-size: 9px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .top-banner {
+    font-size: 11px;
+    padding: 4px 4px;
+  }
+}
+
+/* Container Principal */
+.container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.container-2 {
+  text-align: center;
+  padding: 60px 20px;
+  
+}
+
+.container-2 p,
+.container-3 p {
+  font-weight: 200;
+  font-size: 1.3rem;
+}
+
+
+
+
+/* Títulos */
+h1 {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: #e63946;
+}
+
+h2 {
+  color: #e63946;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: disc;
+  text-align: left;
+  padding-left: 40px;
+  margin-bottom: 20px;
+}
+
+.p1 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Botão CTA */
+.cta-button {
+  display: inline-block;
+  background-color: #c40028; /* vermelho sedutor */
+  color: #fff;
+  padding: 15px 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #c40028, 0 0 16px #8b001c, 0 0 24px #8b001c;
+  animation: pulseGlow 2s infinite;
+}
+
+
+/* Hover */
+.cta-button:hover {
+  background-color: #e00030;
+  box-shadow: 0 0 10px #e00030, 0 0 20px #ff0033, 0 0 40px #ff0033;
+}
+
+/* Animação de glow */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 8px #e63946, 0 0 16px #ff595e, 0 0 24px #ff595e;
+  }
+  50% {
+    box-shadow: 0 0 12px #ff595e, 0 0 24px #ff595e, 0 0 36px #ff595e;
+  }
+  100% {
+    box-shadow: 0 0 8px #e63946, 0 0 16px #ff595e, 0 0 24px #ff595e;
+  }
+}
+
+.cta-button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+/* Visibilidade ao entrar na tela */
+.cta-button.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  filter: brightness(0.9);
+}
+
+
+/* Bloco Gatilho */
+.gatilho-bloco {
+  position: relative;
+  background-color: #000000;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+}
+
+/* Degradê no topo */
+.gatilho-bloco {
+  position: relative;
+  background-color: #000000;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  z-index: 0;
+}
+
+/* Degradê superior */
+.gatilho-bloco::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, #0f000f, #000000);
+  z-index: -1;
+}
+
+/* Degradê inferior */
+.gatilho-bloco::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to top, #1a0000, #000000);
+  z-index: -1;
+}
+
+/* Garante que o conteúdo fique visível sobre os degradês */
+.gatilho-bloco > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gatilho.reverso {
+  flex-direction: row-reverse;
+}
+
+.gatilho {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.gatilho img {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.texto-gatilho {
+  max-width: 500px;
+  text-align: left;
+}
+
+.texto-gatilho h2 {
+  color: #ff595e;
+  margin-bottom: 15px;
+}
+
+.texto-gatilho p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .gatilho {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .texto-gatilho {
+    text-align: center;
+  }
+}
+
+/* Sessão de Compra */
+.sessao-comprar {
+  
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.paragrafo-destaque {
+  color: #e63946;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.preco-destaque {
+  color: #ff595e;
+  font-size: 1.5rem;
+  animation: piscar 1s infinite alternate;
+  margin-bottom: 30px;
+}
+
+.botao-comprar-grande {
+  display: inline-block;
+  background-color: #ff0000;
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 0 20px #ff0000, 0 0 40px #e60000, 0 0 60px #e60000;
+  animation: glowPulse 1.5s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.botao-comprar-grande:hover {
+  transform: scale(1.05);
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #e60000, 0 0 30px #e60000;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff1a1a, 0 0 60px #ff1a1a;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #e60000, 0 0 30px #e60000;
+  }
+}
+
+.preco-destaque {
+  color: #ff595e;
+  font-size: 1.7rem;
+  font-weight: bold;
+  animation: piscar-forte 0.6s infinite alternate;
+  margin: 15px 0 10px 0;
+}
+
+.preco-oferta {
+  font-size: 1.5rem; 
+  font-weight: bold;
+  color: #ff595e;
+  text-align: center;
+  margin-top: 30px; 
+}
+
+.preco-antigo {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 5px;
+}
+
+.preco-novo {
+  color: #ff595e;
+  animation: piscar-vermelho-branco 1s infinite;
+}
+
+
+
+/* Estilo do contador */
+#contador {
+  font-size: 3rem; /* Tamanho maior para o contador */
+  font-weight: bold;
+  color: #ff595e;
+  animation: pulsar 1.5s infinite ease-in-out;
+  display: block;
+  margin-bottom: 10px; /* Espaçamento abaixo do contador */
+}
+
+/* Estilo da frase que aparece após o contador */
+.texto-oferta {
+  font-size: 1.2rem;
+  color: #ff595e;
+  text-align: center;
+  margin-bottom: 30px; /* Espaçamento entre a frase e o final */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  #contador {
+    font-size: 2.5rem; /* Ajusta o tamanho do contador para telas menores */
+  }
+
+  .texto-oferta {
+    font-size: 1rem; /* Reduz o tamanho do texto para telas menores */
+    margin-bottom: 20px; /* Ajuste do espaçamento */
+  }
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 480px) {
+  #contador {
+    font-size: 2rem; /* Ajuste ainda menor para telas muito pequenas */
+  }
+
+  .texto-oferta {
+    font-size: 0.9rem; /* Ajuste o tamanho do texto para celulares pequenos */
+  }
+}
+
+@keyframes pulsar {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+
+
+@keyframes piscar-forte {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+.aviso-final {
+  color: #ffd6d6;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.botao-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.destaque-botao {
+  font-size: 1.4rem;
+  padding: 15px 30px;
+  text-align: center;
+  border-radius: 8px;
+  width: auto;
+}
+
+
+/* Animação piscante */
+@keyframes piscar {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.3;
+  }
+}
+
+
+.top-banner {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Brilho animado */
+.top-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+  z-index: 2;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@media (min-width: 768px) {
+  .top-banner {
+    padding: 10px 20px; /* aumenta levemente a altura no desktop */
+    font-size: 0.75rem;  /* aumenta um pouco o texto, se quiser */
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #0d0000;
+  padding: 20px;
+  text-align: center;
+  color: #999;
+}
+
+/* Responsividade geral */
+@media (min-width: 768px) {
+  .container {
+    text-align: center;
+  }
+
+  ul {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  img {
+    max-width: 700px;
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .preco-destaque {
+    white-space: nowrap;
+    font-size: 1.1rem;
+  }
+}
+
+/* Preço 47,00, ajuste colocando para 79,90 por 47,00 */
+/*  Frase "Se você se viu em pelo menos um desses pontos, esse Ebook é pra você */
